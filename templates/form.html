@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block content %}
+
+     <form action="/validate_form" method="POST">
+        <table cellspacing="5" cellpadding="5">
+            <tr>
+                <td colspan="3">
+                    <h1>Signup</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="username">Username</label>
+                <td>
+                    <input type="text" name="username" value="{{username}}"/>
+                </td>
+                <td><span class="error">{{username_error}}</span></td>
+            </tr>
+        
+            <tr>
+                <td>
+                    <label for="password">Password</label>
+                <td>
+                    <input type="password" name="password" value="{{password}}"/>
+                </td>
+                <td><span class="error">{{password_error}}</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="re_password">Verify Password</label>
+                <td>
+                    <input type="password" name="re_password" value="{{re_password}}"/>
+                </td>
+                <td><span class="error">{{re_password_error}}</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">Email (optional)</label>
+                <td>
+                    <input type="text" name="email" value="{{email}}"/>
+                </td>
+                <td><span class="error" >{{email_error}}</span></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    <input type="submit" value="Submit"/>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+     </form>
+     {% endblock %}
