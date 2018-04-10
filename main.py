@@ -40,9 +40,10 @@ def validate():
     
 
     re_password_txt = request.form["re_password"]
-    if((re_password_txt == "" and password_txt != "") or (password_txt != re_password_txt)):
+    if((re_password_txt == "" and password_txt != "") or (password_txt != re_password_txt)): 
        re_password_error_txt = "Passwords don't match"
-
+    if(re_password_txt==""):
+        re_password_error_txt ="re_password should should not be an empty"
     email_txt = request.form["email"]
 
     if(email_txt != ""):
@@ -55,7 +56,8 @@ def validate():
     if(not username_error_txt and not password_error_txt and not re_password_error_txt and not email_error_txt):
         return render_template('welcome.html', username = username_txt)
     else:
-        return render_template('form.html', username_error = username_error_txt, password_error = password_error_txt, re_password_error = re_password_error_txt, email_error = email_error_txt, username = username_txt, email = email_txt)
+        return render_template('form.html', username_error = username_error_txt, password_error = password_error_txt, 
+        re_password_error = re_password_error_txt, email_error = email_error_txt, username = username_txt, email = email_txt)
 
 
 app.run()
